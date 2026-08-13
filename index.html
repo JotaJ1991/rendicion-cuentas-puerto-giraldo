@@ -129,6 +129,23 @@ ol.steps li::before{content:counter(s);position:absolute;left:0;top:-1px;width:2
 .deflist dt{color:var(--ink-3);font-weight:600;white-space:nowrap}
 .deflist dd{color:var(--ink);font-weight:550;line-height:1.4}
 
+/* ---------- Iconografía ---------- */
+.ic{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.7;
+    stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.ico{display:inline-grid;place-items:center;width:27px;height:27px;border-radius:8px;
+     margin:0 9px 7px 0;vertical-align:-9px;
+     background:var(--accent-soft,var(--navy-soft));color:var(--accent,var(--navy))}
+.ico .ic{width:15px;height:15px}
+.card .num{display:inline;margin-bottom:0}
+/* Marca de agua en las tarjetas de cifras */
+.stat{position:relative;overflow:hidden}
+.stat .wm{position:absolute;right:-6px;top:-6px;width:64px;height:64px;color:var(--navy);opacity:.055;
+  pointer-events:none}
+.stat .wm .ic{width:64px;height:64px;stroke-width:1.2}
+.stat.hero .wm{color:#fff;opacity:.13}
+/* Icono dentro de chips */
+.chip .ic{width:13px;height:13px;margin-right:6px;vertical-align:-2px;opacity:.72}
+
 /* Chips */
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{font-size:13px;font-weight:600;color:var(--navy);background:var(--surface);
@@ -138,7 +155,7 @@ ol.steps li::before{content:counter(s);position:absolute;left:0;top:-1px;width:2
 .oport{background:var(--gold-soft);border:1px solid #F3E2AE;border-radius:16px;padding:18px 22px}
 .oport .t{display:flex;align-items:center;gap:9px;font-size:12.5px;font-weight:800;letter-spacing:.1em;
   text-transform:uppercase;color:var(--gold-ink);margin-bottom:10px}
-.oport .t::before{content:"";width:16px;height:16px;border-radius:5px;background:var(--gold)}
+.oport .t .ic{width:16px;height:16px;stroke-width:1.9}
 .oport ul{list-style:none;display:flex;flex-direction:column;gap:8px}
 .oport li{position:relative;padding-left:18px;font-size:14.5px;line-height:1.45;color:#5C4A10}
 .oport li::before{content:"→";position:absolute;left:0;top:0;color:var(--gold-ink);font-weight:700}
@@ -303,6 +320,48 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
 </head>
 <body>
 
+<!-- Iconografía institucional · SVG vectorial, dibujada a medida, sin dependencias externas -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-informar" viewBox="0 0 24 24"><path d="M4 10v4a1 1 0 0 0 1 1h2l7 4V5L7 9H5a1 1 0 0 0-1 1z"/><path d="M17.5 9a4 4 0 0 1 0 6"/></symbol>
+<symbol id="i-dialogar" viewBox="0 0 24 24"><path d="M3 6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H8l-3 2.5V12H5a2 2 0 0 1-2-2V6z"/><path d="M17 9h2a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-1v2.5L15 17h-3"/></symbol>
+<symbol id="i-responder" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></symbol>
+<symbol id="i-ley" viewBox="0 0 24 24"><path d="M12 4v16"/><path d="M6 7h12"/><path d="M8 7l-3 6h6L8 7z"/><path d="M16 7l-3 6h6l-3-6z"/><path d="M8 20h8"/></symbol>
+<symbol id="i-escuela" viewBox="0 0 24 24"><path d="M3 20h18"/><path d="M5 20V9l7-5 7 5v11"/><path d="M10 20v-5h4v5"/></symbol>
+<symbol id="i-estudiantes" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 6.6a3 3 0 0 1 0 5.8"/><path d="M17 14.6a5.5 5.5 0 0 1 4 5.4"/></symbol>
+<symbol id="i-sede" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+<symbol id="i-grado" viewBox="0 0 24 24"><path d="M2 8l10-4 10 4-10 4L2 8z"/><path d="M6 10v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></symbol>
+<symbol id="i-libro" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h11v16H6a2 2 0 0 0-2 2V5z"/><path d="M4 19a2 2 0 0 1 2-2h11"/></symbol>
+<symbol id="i-evaluar" viewBox="0 0 24 24"><path d="M9 4H7a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2"/><rect x="9" y="2.2" width="6" height="3.8" rx="1"/><path d="M9 13.5l2 2 4-4"/></symbol>
+<symbol id="i-grafica" viewBox="0 0 24 24"><path d="M4 20V4"/><path d="M4 20h16"/><path d="M7 16l4-5 3 3 5-7"/></symbol>
+<symbol id="i-subir" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></symbol>
+<symbol id="i-inclusion" viewBox="0 0 24 24"><path d="M12 20s-7-4.3-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.7-7 9-7 9z"/></symbol>
+<symbol id="i-piar" viewBox="0 0 24 24"><circle cx="12" cy="4.4" r="1.9"/><path d="M5 8.5h14"/><path d="M12 8.5v6"/><path d="M8.5 20.5l3.5-6 3.5 6"/></symbol>
+<symbol id="i-voto" viewBox="0 0 24 24"><path d="M4 10.5h16V19a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8.5z"/><path d="M9 10.5V3.5h9l-2 3.5 2 3.5"/><path d="M9.5 14.5h5"/></symbol>
+<symbol id="i-red" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.4"/><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M6.6 7.4l3.7 3.2M17.4 7.4l-3.7 3.2M6.6 16.6l3.7-3.2M17.4 16.6l-3.7-3.2"/></symbol>
+<symbol id="i-mensaje" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H8l-4 3.5V6a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2v9z"/><path d="M8 9h9M8 12.5h6"/></symbol>
+<symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/></symbol>
+<symbol id="i-comida" viewBox="0 0 24 24"><path d="M6 3v7a2 2 0 0 0 4 0V3"/><path d="M8 12v9"/><path d="M17 3c-1.6 1.4-2.4 3.3-2.4 5.3S15.6 12 17 12v9"/></symbol>
+<symbol id="i-musica" viewBox="0 0 24 24"><circle cx="6.5" cy="18" r="2.8"/><circle cx="17.5" cy="16" r="2.8"/><path d="M9.3 18V6.2l11-2v11.6"/></symbol>
+<symbol id="i-hoja" viewBox="0 0 24 24"><path d="M4 20c0-9 6-14.5 16-15 0 10-5.5 15-13 15H4z"/><path d="M8.5 20c1-4 3.2-7 7-9.2"/></symbol>
+<symbol id="i-familia" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5.5 10v10h13V10"/><path d="M12 17.6s-2.7-1.7-2.7-3.4a1.55 1.55 0 0 1 2.7-1.1 1.55 1.55 0 0 1 2.7 1.1c0 1.7-2.7 3.4-2.7 3.4z"/></symbol>
+<symbol id="i-obra" viewBox="0 0 24 24"><path d="M3 20.5h18"/><path d="M5 20.5v-4.2a7 7 0 0 1 14 0v4.2"/><path d="M9 9.5V6a3 3 0 0 1 6 0v3.5"/></symbol>
+<symbol id="i-dinero" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.7"/><path d="M6.5 12h.01M17.5 12h.01"/></symbol>
+<symbol id="i-archivo" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 16.5h4"/></symbol>
+<symbol id="i-llave" viewBox="0 0 24 24"><path d="M15.6 3.4a5 5 0 0 0-5.9 6.6L3 16.7 6.3 20l6.7-6.7a5 5 0 0 0 6.6-5.9l-3 3-2.5-2.5 2.5-2.5z"/></symbol>
+<symbol id="i-equipo" viewBox="0 0 24 24"><circle cx="8" cy="9" r="3"/><circle cx="17.2" cy="10" r="2.4"/><path d="M2 20.5a6 6 0 0 1 12 0"/><path d="M14.8 15.4A5 5 0 0 1 22 20"/></symbol>
+<symbol id="i-meta" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.2"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.2"/></symbol>
+<symbol id="i-carpeta" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2.5h8a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/></symbol>
+<symbol id="i-planta" viewBox="0 0 24 24"><path d="M12 21v-8.2"/><path d="M12 12.8C12 8 9 5 4 5c0 4.8 3 7.8 8 7.8z"/><path d="M12 15c0-4 2.5-7 7-7 0 4-2.5 7-7 7z"/></symbol>
+<symbol id="i-calendario" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+<symbol id="i-alerta" viewBox="0 0 24 24"><path d="M12 4l9 16H3l9-16z"/><path d="M12 10.5v4M12 17.5h.01"/></symbol>
+<symbol id="i-trofeo" viewBox="0 0 24 24"><path d="M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M7 6H4v1.8a3 3 0 0 0 3 3M17 6h3v1.8a3 3 0 0 1-3 3"/><path d="M10 14.2V17M14 14.2V17M8 20.5h8"/></symbol>
+<symbol id="i-idea" viewBox="0 0 24 24"><path d="M9.2 18h5.6"/><path d="M10.2 21h3.6"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.5.4.8 1 .8 1.6v.5h5.4v-.5c0-.6.3-1.2.8-1.6A6 6 0 0 0 12 3z"/></symbol>
+<symbol id="i-reloj" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5.2l3.5 2"/></symbol>
+<symbol id="i-certificado" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 8.5h10M7 12h5"/><circle cx="17" cy="18" r="2.6"/><path d="M15.4 20.2L15 23l2-1.1 2 1.1-.4-2.8"/></symbol>
+<symbol id="i-lupa" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M15.8 15.8L20.5 20.5"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5l5.2 5.2L20 6.8"/></symbol>
+</defs></svg>
+
 <div id="bar"></div>
 <div id="viewport"><div id="stage">
 <!-- ══════════════ 01 · PORTADA ══════════════ -->
@@ -347,10 +406,10 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
           <h2 style="font-size:46px;line-height:1.05;font-weight:790;letter-spacing:-.03em;color:var(--navy)">Yudis Vizcaíno<br>Venencia</h2>
         </div>
         <div class="grid g2" style="gap:12px">
-          <div class="card tight"><span class="num">PREGRADO</span><h3 style="margin-bottom:0">Licenciada en Ciencias Sociales</h3></div>
-          <div class="card tight" style="--accent:var(--red)"><span class="num">ESPECIALIZACIÓN</span><h3 style="margin-bottom:0">Especialista en Enseñanza de la Historia</h3></div>
-          <div class="card tight" style="--accent:var(--green)"><span class="num">POSGRADO</span><h3 style="margin-bottom:0">Magíster en Educación</h3></div>
-          <div class="stat" style="min-height:0;padding:16px 20px"><div class="lab">Años al servicio de la educación</div><div class="val" style="font-size:34px">34</div></div>
+          <div class="card tight"><div class="ico"><svg class="ic"><use href="#i-grado"/></svg></div><span class="num">PREGRADO</span><h3 style="margin-bottom:0">Licenciada en Ciencias Sociales</h3></div>
+          <div class="card tight" style="--accent:var(--red)"><div class="ico"><svg class="ic"><use href="#i-certificado"/></svg></div><span class="num">ESPECIALIZACIÓN</span><h3 style="margin-bottom:0">Especialista en Enseñanza de la Historia</h3></div>
+          <div class="card tight" style="--accent:var(--green)"><div class="ico"><svg class="ic"><use href="#i-grado"/></svg></div><span class="num">POSGRADO</span><h3 style="margin-bottom:0">Magíster en Educación</h3></div>
+          <div class="stat" style="min-height:0;padding:16px 20px"><div class="wm"><svg class="ic"><use href="#i-calendario"/></svg></div><div class="lab">Años al servicio de la educación</div><div class="val" style="font-size:34px">34</div></div>
         </div>
         <div class="card fill" style="--accent-soft:var(--navy-soft);padding:15px 20px">
           <p style="font-size:14.5px;color:var(--navy)">Conforme al artículo 10 de la Ley 715 de 2001, corresponde al rector <strong>dirigir la preparación del PEI, presidir los órganos del gobierno escolar, orientar la ejecución del plan de mejoramiento y rendir informes de su gestión</strong> a la comunidad educativa y a las autoridades competentes.</p>
@@ -370,9 +429,9 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
     </div>
     <p class="lead">La rendición de cuentas es una <strong>obligación legal y un compromiso ético</strong> de la institución con su comunidad: informar de manera clara, verificable y oportuna qué se hizo, con qué recursos y qué resultados se alcanzaron durante el semestre.</p>
     <div class="grid g3 grow" style="margin-bottom:20px">
-      <div class="card acc"><span class="num">TRANSPARENCIA</span><h3>Informar</h3><p>Poner a disposición de la comunidad la información sobre la gestión institucional y el uso de los recursos públicos.</p></div>
-      <div class="card acc" style="--accent:var(--red)"><span class="num">PARTICIPACIÓN</span><h3>Dialogar</h3><p>Abrir un espacio de encuentro donde padres, estudiantes, docentes y comunidad pregunten, opinen y propongan.</p></div>
-      <div class="card acc" style="--accent:var(--green)"><span class="num">RESPONSABILIDAD</span><h3>Responder</h3><p>Asumir compromisos verificables de mejoramiento a partir de lo que este informe evidencia.</p></div>
+      <div class="card acc"><div class="ico"><svg class="ic"><use href="#i-informar"/></svg></div><span class="num">TRANSPARENCIA</span><h3>Informar</h3><p>Poner a disposición de la comunidad la información sobre la gestión institucional y el uso de los recursos públicos.</p></div>
+      <div class="card acc" style="--accent:var(--red)"><div class="ico"><svg class="ic"><use href="#i-dialogar"/></svg></div><span class="num">PARTICIPACIÓN</span><h3>Dialogar</h3><p>Abrir un espacio de encuentro donde padres, estudiantes, docentes y comunidad pregunten, opinen y propongan.</p></div>
+      <div class="card acc" style="--accent:var(--green)"><div class="ico"><svg class="ic"><use href="#i-responder"/></svg></div><span class="num">RESPONSABILIDAD</span><h3>Responder</h3><p>Asumir compromisos verificables de mejoramiento a partir de lo que este informe evidencia.</p></div>
     </div>
     <div class="card tight" style="padding:16px 20px">
       <h3 style="margin-bottom:10px">Normas que sustentan este ejercicio</h3>
@@ -395,10 +454,10 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
     </div>
     <p class="lead">El informe se organiza en las <strong>cuatro áreas de gestión</strong> definidas por la Guía N.º 34 del Ministerio de Educación Nacional, y cierra con los proyectos y metas para el segundo semestre.</p>
     <div class="grid g2" style="gap:16px">
-      <div class="card acc" style="--accent:var(--navy)"><span class="num">ÁREA 1</span><h3>Gestión directiva</h3><p>Horizonte institucional, inclusión y diversidad, gobierno escolar, articulación con entidades, comunicación, convivencia y bienestar.</p></div>
-      <div class="card acc" style="--accent:var(--red)"><span class="num">ÁREA 2</span><h3>Gestión académica</h3><p>Plan de estudios, evaluación en el aula, matrícula y permanencia, resultados Saber 11 y estrategias de mejoramiento.</p></div>
-      <div class="card acc" style="--accent:var(--gold-ink)"><span class="num">ÁREA 3</span><h3>Gestión administrativa y financiera</h3><p>Infraestructura, recursos para el aprendizaje, seguridad, Fondo de Servicios Educativos, talento humano y mantenimiento.</p></div>
-      <div class="card acc" style="--accent:var(--green)"><span class="num">ÁREA 4</span><h3>Gestión comunitaria</h3><p>Proyectos sociales, PRAE y gestión del riesgo, Escuela de Familia, Consejo de Padres y relación con el sector productivo.</p></div>
+      <div class="card acc" style="--accent:var(--navy)"><div class="ico"><svg class="ic"><use href="#i-escuela"/></svg></div><span class="num">ÁREA 1</span><h3>Gestión directiva</h3><p>Horizonte institucional, inclusión y diversidad, gobierno escolar, articulación con entidades, comunicación, convivencia y bienestar.</p></div>
+      <div class="card acc" style="--accent:var(--red)"><div class="ico"><svg class="ic"><use href="#i-libro"/></svg></div><span class="num">ÁREA 2</span><h3>Gestión académica</h3><p>Plan de estudios, evaluación en el aula, matrícula y permanencia, resultados Saber 11 y estrategias de mejoramiento.</p></div>
+      <div class="card acc" style="--accent:var(--gold-ink)"><div class="ico"><svg class="ic"><use href="#i-dinero"/></svg></div><span class="num">ÁREA 3</span><h3>Gestión administrativa y financiera</h3><p>Infraestructura, recursos para el aprendizaje, seguridad, Fondo de Servicios Educativos, talento humano y mantenimiento.</p></div>
+      <div class="card acc" style="--accent:var(--green)"><div class="ico"><svg class="ic"><use href="#i-familia"/></svg></div><span class="num">ÁREA 4</span><h3>Gestión comunitaria</h3><p>Proyectos sociales, PRAE y gestión del riesgo, Escuela de Familia, Consejo de Padres y relación con el sector productivo.</p></div>
     </div>
     <div class="card fill" style="--accent-soft:var(--teal-soft);margin-top:16px;padding:14px 20px">
       <p style="color:#0B4C5F;font-weight:600;font-size:15px">Cierre · <span style="font-weight:450">Proyectos futuros, metas y proyecciones para el segundo semestre de 2026, y espacio de preguntas de la comunidad educativa.</span></p>
@@ -415,16 +474,16 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
       <div class="tag">Enero – junio 2026</div>
     </div>
     <div class="grid g4 grow" style="gap:16px;margin-bottom:16px">
-      <div class="stat hero"><div class="lab">Estudiantes atendidos</div><div class="val">1.231</div><div class="note"><span class="up">▲ 32</span> frente a la matrícula inicial (1.199)</div></div>
-      <div class="stat"><div class="lab">Sedes en operación</div><div class="val">4</div><div class="note">Principal, María Inmaculada, Rafael Núñez y Las Flores</div></div>
-      <div class="stat"><div class="lab">Docentes</div><div class="val">66</div><div class="note">31 en bachillerato y 35 en primaria, más 1 docente de apoyo</div></div>
-      <div class="stat"><div class="lab">Clasificación ICFES 2025</div><div class="val">C</div><div class="note"><span class="up">▲</span> ascenso desde la categoría D</div></div>
+      <div class="stat hero"><div class="wm"><svg class="ic"><use href="#i-estudiantes"/></svg></div><div class="lab">Estudiantes atendidos</div><div class="val">1.231</div><div class="note"><span class="up">▲ 32</span> frente a la matrícula inicial (1.199)</div></div>
+      <div class="stat"><div class="wm"><svg class="ic"><use href="#i-sede"/></svg></div><div class="lab">Sedes en operación</div><div class="val">4</div><div class="note">Principal, María Inmaculada, Rafael Núñez y Las Flores</div></div>
+      <div class="stat"><div class="wm"><svg class="ic"><use href="#i-equipo"/></svg></div><div class="lab">Docentes</div><div class="val">66</div><div class="note">31 en bachillerato y 35 en primaria, más 1 docente de apoyo</div></div>
+      <div class="stat"><div class="wm"><svg class="ic"><use href="#i-trofeo"/></svg></div><div class="lab">Clasificación ICFES 2025</div><div class="val">C</div><div class="note"><span class="up">▲</span> ascenso desde la categoría D</div></div>
     </div>
     <div class="grid g4 grow" style="gap:16px">
-      <div class="stat"><div class="lab">Puntaje global Saber 11 (2025)</div><div class="val">230</div><div class="note">Índice institucional 0,6205</div></div>
-      <div class="stat"><div class="lab">Ingresos del Fondo de Servicios Educativos</div><div class="val sm">$197.695.444</div><div class="note">Enero 1 – junio 30 de 2026</div></div>
-      <div class="stat"><div class="lab">Estudiantes retirados en SIMAT</div><div class="val">78</div><div class="note">6,3 % de la matrícula; foco de las estrategias de permanencia</div></div>
-      <div class="stat"><div class="lab">Niveles ofertados</div><div class="val sm">Preescolar a media</div><div class="note">Media técnica agropecuaria con articulación SENA</div></div>
+      <div class="stat"><div class="wm"><svg class="ic"><use href="#i-grafica"/></svg></div><div class="lab">Puntaje global Saber 11 (2025)</div><div class="val">230</div><div class="note">Índice institucional 0,6205</div></div>
+      <div class="stat"><div class="wm"><svg class="ic"><use href="#i-dinero"/></svg></div><div class="lab">Ingresos del Fondo de Servicios Educativos</div><div class="val sm">$197.695.444</div><div class="note">Enero 1 – junio 30 de 2026</div></div>
+      <div class="stat"><div class="wm"><svg class="ic"><use href="#i-alerta"/></svg></div><div class="lab">Estudiantes retirados en SIMAT</div><div class="val">78</div><div class="note">6,3 % de la matrícula; foco de las estrategias de permanencia</div></div>
+      <div class="stat"><div class="wm"><svg class="ic"><use href="#i-grado"/></svg></div><div class="lab">Niveles ofertados</div><div class="val sm">Preescolar a media</div><div class="note">Media técnica agropecuaria con articulación SENA</div></div>
     </div>
   </div>
   <div class="foot"><div class="l"><i class="mark"></i>Rendición de cuentas · Primer semestre 2026</div><div class="r"></div></div>
@@ -487,11 +546,11 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
     </div>
     <div class="grid g2 grow" style="gap:18px">
       <div class="card acc" style="--accent:var(--red)">
-        <span class="num">MISIÓN</span>
+        <div class="ico"><svg class="ic"><use href="#i-planta"/></svg></div><span class="num">MISIÓN</span>
         <p style="font-size:15.5px">Somos formadores de personas integrales, capaces de liderar proyectos sociales y productivos, ambientalmente conscientes y técnicamente competentes en el ámbito agropecuario, que les permita desarrollar su proyecto de vida a través de una educación integradora de saberes, inclusiva y de calidad, enfocada en valores y competencias ciudadanas que fomenten la innovación, la sostenibilidad y el desarrollo responsable.</p>
       </div>
       <div class="card acc" style="--accent:var(--green)">
-        <span class="num">VISIÓN 2027</span>
+        <div class="ico"><svg class="ic"><use href="#i-meta"/></svg></div><span class="num">VISIÓN 2027</span>
         <p style="font-size:15.5px">Ser un establecimiento educativo reconocido en el departamento en la formación integral e inclusiva de ciudadanos competentes, innovadores y emprendedores. Contribuiremos al desarrollo sostenible de la región a través de la articulación de proyectos productivos y competencias ciudadanas, laborales y empresariales de calidad, en un entorno de participación, inclusión y responsabilidad social.</p>
       </div>
     </div>
@@ -535,7 +594,7 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
         </ol>
       </div>
       <div class="oport">
-        <div class="t">Oportunidad de mejora</div>
+        <div class="t"><svg class="ic"><use href="#i-alerta"/></svg>Oportunidad de mejora</div>
         <ul>
           <li>Dar mayor participación a los <strong>padres de familia y a los estudiantes</strong> en el ejercicio de autoevaluación institucional.</li>
           <li>Culminar la resignificación del PEI con la comunidad educativa.</li>
@@ -581,7 +640,7 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
       <div class="tag">Orientación escolar</div>
     </div>
     <div class="grid g3" style="gap:16px;margin-bottom:16px">
-      <div class="card tight"><span class="num">DESDE LA ORIENTACIÓN ESCOLAR</span>
+      <div class="card tight"><div class="ico"><svg class="ic"><use href="#i-dialogar"/></svg></div><span class="num">DESDE LA ORIENTACIÓN ESCOLAR</span>
         <ul class="bul sm compact" style="margin-top:8px">
           <li>Atención individual de estudiantes remitidos por los docentes</li>
           <li>Escucha activa y contención emocional en crisis</li>
@@ -590,7 +649,7 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
           <li>Activación de rutas de atención integral</li>
         </ul>
       </div>
-      <div class="card tight" style="--accent:var(--red)"><span class="num">SEGUIMIENTO Y REGISTRO</span>
+      <div class="card tight" style="--accent:var(--red)"><div class="ico"><svg class="ic"><use href="#i-lupa"/></svg></div><span class="num">SEGUIMIENTO Y REGISTRO</span>
         <ul class="bul sm compact" style="margin-top:8px">
           <li>Registro y actualización de estudiantes con discapacidad en el <strong>SIMAT</strong></li>
           <li>Seguimiento de los PIAR en cada periodo con la docente de apoyo, con actas e informes</li>
@@ -598,7 +657,7 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
           <li>Remisiones a la Comisaría de Familia de Ponedera</li>
         </ul>
       </div>
-      <div class="card tight" style="--accent:var(--green)"><span class="num">FAMILIA Y AULA</span>
+      <div class="card tight" style="--accent:var(--green)"><div class="ico"><svg class="ic"><use href="#i-familia"/></svg></div><span class="num">FAMILIA Y AULA</span>
         <ul class="bul sm compact" style="margin-top:8px">
           <li>Jornadas de sensibilización a familias sobre educación inclusiva y ajustes desde el hogar</li>
           <li>Trabajo articulado docentes de aula – docente de apoyo</li>
@@ -626,7 +685,7 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
     <p class="lead">Reconocer con franqueza lo que falta hace parte de rendir cuentas. Estas son las necesidades identificadas en el componente de inclusión y diversidad.</p>
     <div class="grid g2 grow" style="gap:18px">
       <div class="oport">
-        <div class="t">Requiere apoyo externo</div>
+        <div class="t"><svg class="ic"><use href="#i-alerta"/></svg>Requiere apoyo externo</div>
         <ul>
           <li>Mayor acompañamiento de la <strong>Secretaría de Educación y del sector salud</strong> para agilizar los diagnósticos de los estudiantes.</li>
           <li><strong>Ampliar el tiempo de acompañamiento</strong> de la docente de apoyo en la institución.</li>
@@ -634,7 +693,7 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
         </ul>
       </div>
       <div class="oport">
-        <div class="t">Depende de la institución</div>
+        <div class="t"><svg class="ic"><use href="#i-alerta"/></svg>Depende de la institución</div>
         <ul>
           <li>Fortalecer la <strong>orientación a padres y acudientes</strong> para desarrollar los ajustes desde el hogar.</li>
           <li>Dar continuidad a la <strong>cualificación docente en DUA</strong> (diseño universal para el aprendizaje) y evaluación flexible.</li>
@@ -714,14 +773,14 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
     </div>
     <p class="lead">Las alianzas amplían las oportunidades de formación y fortalecen las competencias cognitivas, laborales, culturales y socioemocionales de los estudiantes. Estas son las que estuvieron <strong>vigentes y activas</strong> durante el semestre.</p>
     <div class="grid g4 grow" style="gap:14px;margin-bottom:16px">
-      <div class="card tight" style="--accent:var(--red)"><span class="num">FORMACIÓN TÉCNICA</span><h3>SENA</h3><p>Articulación de la media técnica en programas del énfasis agropecuario, con certificación en competencias laborales.</p></div>
-      <div class="card tight"><span class="num">BIENESTAR</span><h3>Secretaría de Educación y Gobernación</h3><p>Programa de Alimentación Escolar (PAE) y programas de bienestar que favorecen la permanencia.</p></div>
-      <div class="card tight" style="--accent:var(--green)"><span class="num">PROTECCIÓN</span><h3>Comisaría de Familia y Fundavé</h3><p>Atención integral, protección de derechos y acompañamiento a los procesos de educación inclusiva.</p></div>
-      <div class="card tight" style="--accent:var(--teal)"><span class="num">PEDAGOGÍA</span><h3>PTA FI 3.0</h3><p>Centro de interés en música y direccionamiento académico institucional para fortalecer las prácticas de aula.</p></div>
+      <div class="card tight" style="--accent:var(--red)"><div class="ico"><svg class="ic"><use href="#i-certificado"/></svg></div><span class="num">FORMACIÓN TÉCNICA</span><h3>SENA</h3><p>Articulación de la media técnica en programas del énfasis agropecuario, con certificación en competencias laborales.</p></div>
+      <div class="card tight"><div class="ico"><svg class="ic"><use href="#i-comida"/></svg></div><span class="num">BIENESTAR</span><h3>Secretaría de Educación y Gobernación</h3><p>Programa de Alimentación Escolar (PAE) y programas de bienestar que favorecen la permanencia.</p></div>
+      <div class="card tight" style="--accent:var(--green)"><div class="ico"><svg class="ic"><use href="#i-escudo"/></svg></div><span class="num">PROTECCIÓN</span><h3>Comisaría de Familia y Fundavé</h3><p>Atención integral, protección de derechos y acompañamiento a los procesos de educación inclusiva.</p></div>
+      <div class="card tight" style="--accent:var(--teal)"><div class="ico"><svg class="ic"><use href="#i-musica"/></svg></div><span class="num">PEDAGOGÍA</span><h3>PTA FI 3.0</h3><p>Centro de interés en música y direccionamiento académico institucional para fortalecer las prácticas de aula.</p></div>
     </div>
     <div class="grid g2 grow" style="gap:14px">
-      <div class="card tight" style="--accent:var(--gold-ink)"><span class="num">COMPLEMENTARIOS</span><h3>Cajacopi</h3><p>Convenio con la caja de compensación familiar mediante los programas complementarios de lectura y medio ambiente.</p></div>
-      <div class="card tight" style="--accent:var(--navy-2)"><span class="num">COMPETENCIAS CIUDADANAS</span><h3>Estrategia CRESE — MEN</h3><p>Fortalecimiento de las competencias ciudadanas y socioemocionales de los estudiantes.</p></div>
+      <div class="card tight" style="--accent:var(--gold-ink)"><div class="ico"><svg class="ic"><use href="#i-libro"/></svg></div><span class="num">COMPLEMENTARIOS</span><h3>Cajacopi</h3><p>Convenio con la caja de compensación familiar mediante los programas complementarios de lectura y medio ambiente.</p></div>
+      <div class="card tight" style="--accent:var(--navy-2)"><div class="ico"><svg class="ic"><use href="#i-dialogar"/></svg></div><span class="num">COMPETENCIAS CIUDADANAS</span><h3>Estrategia CRESE — MEN</h3><p>Fortalecimiento de las competencias ciudadanas y socioemocionales de los estudiantes.</p></div>
     </div>
   </div>
   <div class="foot"><div class="l"><i class="mark"></i>Rendición de cuentas · Primer semestre 2026</div><div class="r"></div></div>
@@ -736,7 +795,7 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
     </div>
     <div class="grid g-7-5 grow">
       <div class="oport" style="height:100%">
-        <div class="t">Oportunidades de mejora en articulación</div>
+        <div class="t"><svg class="ic"><use href="#i-alerta"/></svg>Oportunidades de mejora en articulación</div>
         <ul>
           <li>Gestionar <strong>nuevas alianzas con universidades</strong> y programas que amplíen la cobertura de atención de los jóvenes.</li>
           <li>Conformar una <strong>mesa de trabajo con las asociaciones campesinas y los productores agropecuarios</strong> de la zona, que facilite las prácticas y los proyectos pedagógicos productivos de la media técnica.</li>
@@ -761,7 +820,7 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
     <p class="lead">La institución mantiene canales <strong>variados y permanentes</strong> para garantizar que la información llegue a todas las familias, incluidas las de veredas y sectores con dificultades de conectividad.</p>
     <div class="grid g2 grow" style="gap:18px;margin-bottom:16px">
       <div class="card acc" style="--accent:var(--teal)">
-        <span class="num">CANALES VIRTUALES Y DIGITALES</span>
+        <div class="ico"><svg class="ic"><use href="#i-mensaje"/></svg></div><span class="num">CANALES VIRTUALES Y DIGITALES</span>
         <ul class="bul sm compact" style="margin-top:8px;--accent:var(--teal)">
           <li>Grupos de WhatsApp por estamentos: docentes, directivos, equipos de área, directores de grupo con sus cursos y órganos del gobierno escolar</li>
           <li>Correo institucional y página web</li>
@@ -770,7 +829,7 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
         </ul>
       </div>
       <div class="card acc" style="--accent:var(--gold-ink)">
-        <span class="num">CANALES FÍSICOS Y PRESENCIALES</span>
+        <div class="ico"><svg class="ic"><use href="#i-informar"/></svg></div><span class="num">CANALES FÍSICOS Y PRESENCIALES</span>
         <ul class="bul sm compact" style="margin-top:8px;--accent:var(--gold-ink)">
           <li>Cartelera informativa institucional</li>
           <li>Circulares impresas</li>
@@ -837,13 +896,13 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
     </div>
     <p class="lead">Servicios que la institución brinda a la comunidad de Puerto Giraldo para atender las necesidades de los estudiantes y favorecer su permanencia y desarrollo integral.</p>
     <div class="grid g3 grow" style="gap:16px;margin-bottom:16px">
-      <div class="card tight"><span class="num">01</span><h3>Educación preescolar, básica y media técnica</h3><p>Con articulación SENA en el énfasis agropecuario.</p></div>
-      <div class="card tight" style="--accent:var(--red)"><span class="num">02</span><h3>Programa de Alimentación Escolar (PAE)</h3><p>En articulación con la Secretaría de Educación y la Gobernación.</p></div>
-      <div class="card tight" style="--accent:var(--green)"><span class="num">03</span><h3>Servicio de orientación escolar</h3><p>Dos orientadoras escolares con atención diaria a estudiantes y familias.</p></div>
+      <div class="card tight"><div class="ico"><svg class="ic"><use href="#i-grado"/></svg></div><span class="num">01</span><h3>Educación preescolar, básica y media técnica</h3><p>Con articulación SENA en el énfasis agropecuario.</p></div>
+      <div class="card tight" style="--accent:var(--red)"><div class="ico"><svg class="ic"><use href="#i-comida"/></svg></div><span class="num">02</span><h3>Programa de Alimentación Escolar (PAE)</h3><p>En articulación con la Secretaría de Educación y la Gobernación.</p></div>
+      <div class="card tight" style="--accent:var(--green)"><div class="ico"><svg class="ic"><use href="#i-dialogar"/></svg></div><span class="num">03</span><h3>Servicio de orientación escolar</h3><p>Dos orientadoras escolares con atención diaria a estudiantes y familias.</p></div>
     </div>
     <div class="grid g2 grow" style="gap:16px">
-      <div class="card tight" style="--accent:var(--teal)"><span class="num">04</span><h3>Programa PTA FI 3.0</h3><p>Centro de interés en música y direccionamiento académico institucional.</p></div>
-      <div class="card tight" style="--accent:var(--gold-ink)"><span class="num">05</span><h3>Programas complementarios de lectura y medio ambiente</h3><p>En convenio con la caja de compensación familiar Cajacopi.</p></div>
+      <div class="card tight" style="--accent:var(--teal)"><div class="ico"><svg class="ic"><use href="#i-musica"/></svg></div><span class="num">04</span><h3>Programa PTA FI 3.0</h3><p>Centro de interés en música y direccionamiento académico institucional.</p></div>
+      <div class="card tight" style="--accent:var(--gold-ink)"><div class="ico"><svg class="ic"><use href="#i-libro"/></svg></div><span class="num">05</span><h3>Programas complementarios de lectura y medio ambiente</h3><p>En convenio con la caja de compensación familiar Cajacopi.</p></div>
     </div>
   </div>
   <div class="foot"><div class="l"><i class="mark"></i>Rendición de cuentas · Primer semestre 2026</div><div class="r"></div></div>
@@ -884,7 +943,7 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
         </ul>
       </div>
       <div class="card acc" style="--accent:var(--green)">
-        <span class="num">MEDIA TÉCNICA</span>
+        <div class="ico"><svg class="ic"><use href="#i-certificado"/></svg></div><span class="num">MEDIA TÉCNICA</span>
         <h3>Doble titulación</h3>
         <p style="margin-bottom:12px">La articulación con el SENA en programas del énfasis agropecuario permite que, al culminar sus estudios, los estudiantes reciban:</p>
         <ul class="bul sm compact" style="--accent:var(--green)">
@@ -931,10 +990,10 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
       </div>
       <div>
         <div class="grid g2" style="gap:14px;margin-bottom:14px">
-          <div class="card tight" style="--accent:var(--red)"><span class="num">SABER SABER</span><p>Promedio de evaluaciones orales y/o escritas y exposiciones.</p></div>
-          <div class="card tight" style="--accent:var(--navy)"><span class="num">SABER HACER</span><p>Talleres, trabajos, consultas, investigaciones y portafolios.</p></div>
-          <div class="card tight" style="--accent:var(--green)"><span class="num">SABER SER</span><p>Autoevaluación y juicio valorativo comportamental y actitudinal.</p></div>
-          <div class="card tight" style="--accent:var(--gold-ink)"><span class="num">P.E.P.A. · 20 %</span><p>Prueba Escrita Periódica de Aprendizajes al finalizar cada periodo.</p></div>
+          <div class="card tight" style="--accent:var(--red)"><div class="ico"><svg class="ic"><use href="#i-lupa"/></svg></div><span class="num">SABER SABER</span><p>Promedio de evaluaciones orales y/o escritas y exposiciones.</p></div>
+          <div class="card tight" style="--accent:var(--navy)"><div class="ico"><svg class="ic"><use href="#i-llave"/></svg></div><span class="num">SABER HACER</span><p>Talleres, trabajos, consultas, investigaciones y portafolios.</p></div>
+          <div class="card tight" style="--accent:var(--green)"><div class="ico"><svg class="ic"><use href="#i-inclusion"/></svg></div><span class="num">SABER SER</span><p>Autoevaluación y juicio valorativo comportamental y actitudinal.</p></div>
+          <div class="card tight" style="--accent:var(--gold-ink)"><div class="ico"><svg class="ic"><use href="#i-evaluar"/></svg></div><span class="num">P.E.P.A. · 20 %</span><p>Prueba Escrita Periódica de Aprendizajes al finalizar cada periodo.</p></div>
         </div>
         <div class="card fill" style="--accent-soft:var(--navy-soft);padding:14px 18px">
           <p style="font-size:14.5px;color:var(--navy)">En <strong>todos los componentes</strong> se aplican adaptaciones curriculares para los estudiantes en condición de inclusión. Las <strong>comisiones de evaluación y promoción</strong> analizan los resultados de cada periodo y definen las estrategias de apoyo.</p>
@@ -954,20 +1013,20 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
     </div>
     <p class="lead">Reglas claras y conocidas por las familias, establecidas en el Sistema Institucional de Evaluación de los Estudiantes.</p>
     <div class="grid g3" style="gap:16px;margin-bottom:16px">
-      <div class="card acc" style="--accent:var(--green)"><span class="num">APRUEBA</span><h3>Valoración ≥ 3,2 en todas las áreas</h3><p>Corresponde al desempeño básico o superior en la totalidad de las áreas del plan de estudios.</p></div>
-      <div class="card acc" style="--accent:var(--gold-ink)"><span class="num">HABILITA</span><h3>Desempeño bajo en 1 o 2 áreas</h3><p>Debe presentar habilitación. Si no la aprueba, reprueba el año escolar.</p></div>
-      <div class="card acc" style="--accent:var(--red)"><span class="num">REPRUEBA</span><h3>Desempeño bajo en 3 o más áreas</h3><p>No es promovido al siguiente grado.</p></div>
+      <div class="card acc" style="--accent:var(--green)"><div class="ico"><svg class="ic"><use href="#i-check"/></svg></div><span class="num">APRUEBA</span><h3>Valoración ≥ 3,2 en todas las áreas</h3><p>Corresponde al desempeño básico o superior en la totalidad de las áreas del plan de estudios.</p></div>
+      <div class="card acc" style="--accent:var(--gold-ink)"><div class="ico"><svg class="ic"><use href="#i-subir"/></svg></div><span class="num">NIVELA</span><h3>Desempeño bajo en 1 o 2 áreas</h3><p>Debe presentar nivelación. Si no la aprueba, reprueba el año escolar.</p></div>
+      <div class="card acc" style="--accent:var(--red)"><div class="ico"><svg class="ic"><use href="#i-alerta"/></svg></div><span class="num">REPRUEBA</span><h3>Desempeño bajo en 3 o más áreas</h3><p>No es promovido al siguiente grado.</p></div>
     </div>
     <div class="grid g2" style="gap:16px">
       <div class="card tight" style="--accent:var(--red)">
-        <span class="num">REGLAS ESPECIALES</span>
+        <div class="ico"><svg class="ic"><use href="#i-ley"/></svg></div><span class="num">REGLAS ESPECIALES</span>
         <ul class="bul sm compact" style="margin-top:8px;--accent:var(--red)">
-          <li><strong>Media técnica:</strong> reprobar el área de la modalidad —producción agrícola, producción pecuaria y proyecto— implica reprobar el año <strong>sin derecho a habilitación</strong>.</li>
+          <li><strong>Media técnica:</strong> reprobar el área de la modalidad —producción agrícola, producción pecuaria y proyecto— implica reprobar el año <strong>sin derecho a nivelación</strong>.</li>
           <li><strong>Inasistencia:</strong> no es promovido quien deje de asistir injustificadamente al <strong>25 % de la intensidad horaria anual</strong>.</li>
         </ul>
       </div>
       <div class="card tight" style="--accent:var(--navy)">
-        <span class="num">FLEXIBILIDAD DEL SISTEMA</span>
+        <div class="ico"><svg class="ic"><use href="#i-piar"/></svg></div><span class="num">FLEXIBILIDAD DEL SISTEMA</span>
         <ul class="bul sm compact" style="margin-top:8px;--accent:var(--navy)">
           <li><strong>Promoción anticipada</strong> de grado, conforme al artículo 7 del Decreto 1290 de 2009.</li>
           <li><strong>Criterios diferenciados</strong> de evaluación y promoción para estudiantes con necesidades educativas especiales.</li>
@@ -996,12 +1055,12 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
         <p class="cap">Fuente: Sistema Integrado de Matrícula (SIMAT), corte primer semestre de 2026. Los valores de la matrícula inicial se consultan en la tabla de la diapositiva siguiente.</p>
       </div>
       <div class="grid" style="gap:14px">
-        <div class="stat hero"><div class="lab">Matrícula actual</div><div class="val">1.231</div><div class="note"><span class="up">▲ 32 estudiantes</span> frente a los 1.199 iniciales</div></div>
+        <div class="stat hero"><div class="wm"><svg class="ic"><use href="#i-estudiantes"/></svg></div><div class="lab">Matrícula actual</div><div class="val">1.231</div><div class="note"><span class="up">▲ 32 estudiantes</span> frente a los 1.199 iniciales</div></div>
         <div class="card tight">
           <p style="font-size:14.5px">El aumento de la matrícula durante el semestre <strong>refleja la confianza de las familias</strong> en la institución.</p>
         </div>
         <div class="card tight" style="--accent:var(--navy)">
-          <span class="num">PROCESO</span>
+          <div class="ico"><svg class="ic"><use href="#i-archivo"/></svg></div><span class="num">PROCESO</span>
           <p style="font-size:14px">Realizado conforme a los lineamientos de la Secretaría de Educación del Atlántico, con registro y <strong>actualización permanente en el SIMAT</strong>.</p>
         </div>
       </div>
@@ -1040,7 +1099,7 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
         </table>
       </div>
       <div class="grid" style="gap:12px;align-content:start">
-        <div class="card tight"><span class="num">COMPARATIVO POR SEDE</span>
+        <div class="card tight"><div class="ico"><svg class="ic"><use href="#i-grafica"/></svg></div><span class="num">COMPARATIVO POR SEDE</span>
           <table class="tbl sm" style="margin-top:8px">
             <thead><tr><th>Sede</th><th>Inicial</th><th>Actual</th></tr></thead>
             <tbody>
@@ -1071,12 +1130,12 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
     <div class="grid g-8-4 align-start">
       <div class="card">
         <h3>Estudiantes retirados por grado — corte primer semestre 2026</h3>
-        <div class="chart" data-chart="col" data-cfg='{"w":660,"h":232,"ml":34,"max":17.6,"ticks":[0,5,10,15],"labels":["0°","1°","2°","3°","4°","5°","6°","7°","8°","9°","10°","11°"],"series":[{"v":[4,4,3,7,0,4,12,13,15,7,4,5],"c":"#2a78d6"}]}'></div>
+        <div class="chart" data-chart="col" data-cfg='{"w":660,"h":218,"ml":34,"max":17.6,"ticks":[0,5,10,15],"labels":["0°","1°","2°","3°","4°","5°","6°","7°","8°","9°","10°","11°"],"series":[{"v":[4,4,3,7,0,4,12,13,15,7,4,5],"c":"#2a78d6"}]}'></div>
         <p class="cap">Los retiros se concentran en la <strong>básica secundaria (6° a 8°): 40 de los 78 casos</strong>, y en su gran mayoría por el motivo «no continuó en el establecimiento educativo».</p>
       </div>
       <div class="grid" style="gap:12px;align-content:start">
-        <div class="card tight"><span class="num">POR SEDE</span>
-          <table class="tbl sm" style="margin-top:8px">
+        <div class="card tight"><div class="ico"><svg class="ic"><use href="#i-sede"/></svg></div><span class="num">POR SEDE</span>
+          <table class="tbl dense" style="margin-top:8px">
             <tbody>
               <tr><td>Sede principal</td><td>56</td></tr>
               <tr><td>María Inmaculada</td><td>9</td></tr>
@@ -1086,8 +1145,8 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
             </tbody>
           </table>
         </div>
-        <div class="card tight"><span class="num">COMPOSICIÓN</span>
-          <table class="tbl sm" style="margin-top:8px">
+        <div class="card tight"><div class="ico"><svg class="ic"><use href="#i-estudiantes"/></svg></div><span class="num">COMPOSICIÓN</span>
+          <table class="tbl dense" style="margin-top:8px">
             <tbody>
               <tr><td>Hombres</td><td>44</td></tr>
               <tr><td>Mujeres</td><td>34</td></tr>
@@ -1111,10 +1170,10 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
     </div>
     <p class="lead">La institución hace <strong>seguimiento permanente</strong> al comportamiento de los retiros, actualiza mensualmente la información en el SIMAT y <strong>focaliza sus estrategias en los grados y poblaciones con mayor riesgo</strong>.</p>
     <div class="grid g4 grow" style="gap:16px;margin-bottom:16px">
-      <div class="card tight"><span class="num">01</span><h3>Seguimiento a la asistencia</h3><p>Reporte permanente de los directores de grupo sobre la asistencia de cada estudiante.</p></div>
-      <div class="card tight" style="--accent:var(--navy)"><span class="num">02</span><h3>Contacto con las familias</h3><p>Comunicación directa con las familias de estudiantes con inasistencias reiteradas.</p></div>
-      <div class="card tight" style="--accent:var(--gold-ink)"><span class="num">03</span><h3>Remisión a Comisaría de Familia</h3><p>Activación de la ruta cuando se identifica riesgo de abandono escolar.</p></div>
-      <div class="card tight" style="--accent:var(--green)"><span class="num">04</span><h3>Programas de bienestar</h3><p>El PAE y demás programas favorecen la permanencia de niños, niñas y jóvenes en el sistema.</p></div>
+      <div class="card tight"><div class="ico"><svg class="ic"><use href="#i-lupa"/></svg></div><span class="num">01</span><h3>Seguimiento a la asistencia</h3><p>Reporte permanente de los directores de grupo sobre la asistencia de cada estudiante.</p></div>
+      <div class="card tight" style="--accent:var(--navy)"><div class="ico"><svg class="ic"><use href="#i-mensaje"/></svg></div><span class="num">02</span><h3>Contacto con las familias</h3><p>Comunicación directa con las familias de estudiantes con inasistencias reiteradas.</p></div>
+      <div class="card tight" style="--accent:var(--gold-ink)"><div class="ico"><svg class="ic"><use href="#i-escudo"/></svg></div><span class="num">03</span><h3>Remisión a Comisaría de Familia</h3><p>Activación de la ruta cuando se identifica riesgo de abandono escolar.</p></div>
+      <div class="card tight" style="--accent:var(--green)"><div class="ico"><svg class="ic"><use href="#i-comida"/></svg></div><span class="num">04</span><h3>Programas de bienestar</h3><p>El PAE y demás programas favorecen la permanencia de niños, niñas y jóvenes en el sistema.</p></div>
     </div>
     <div class="grid g-7-5" style="gap:16px">
       <div class="card fill" style="--accent-soft:var(--navy-soft);padding:16px 20px">
@@ -1141,8 +1200,8 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
         <p class="cap">Reporte de Calidad Educativa de la Secretaría de Educación Departamental (enero de 2026), elaborado a partir de los resultados publicados por el ICFES. Eje vertical recortado para hacer visible la variación.</p>
       </div>
       <div class="grid" style="gap:14px">
-        <div class="stat hero"><div class="lab">Índice institucional 2025</div><div class="val">0,6205</div><div class="note"><span class="up">▲</span> desde 0,5958 (2023) y 0,6077 (2024)</div></div>
-        <div class="card tight"><span class="num">MEJORAMIENTO SOSTENIDO</span>
+        <div class="stat hero"><div class="wm"><svg class="ic"><use href="#i-subir"/></svg></div><div class="lab">Índice institucional 2025</div><div class="val">0,6205</div><div class="note"><span class="up">▲</span> desde 0,5958 (2023) y 0,6077 (2024)</div></div>
+        <div class="card tight"><div class="ico"><svg class="ic"><use href="#i-grafica"/></svg></div><span class="num">MEJORAMIENTO SOSTENIDO</span>
           <table class="tbl sm" style="margin-top:6px">
             <thead><tr><th>Año</th><th>Índice</th></tr></thead>
             <tbody>
@@ -1200,13 +1259,13 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
     </div>
     <p class="lead" style="margin-bottom:16px">El análisis de la priorización de aprendizajes 2025 señala, en su orden, las áreas de <strong>mayor prioridad de intervención</strong> y los aprendizajes críticos sobre los que hay que trabajar.</p>
     <div class="grid g3" style="gap:16px;margin-bottom:16px">
-      <div class="card acc" style="--accent:var(--red)"><span class="num">PRIORIDAD 1</span><h3>Sociales y ciudadanas</h3><p>Comprensión de las dimensiones espaciales y temporales de eventos y problemáticas sociales; evaluación de usos de fuentes y argumentos.</p></div>
-      <div class="card acc" style="--accent:var(--gold-ink)"><span class="num">PRIORIDAD 2</span><h3>Inglés</h3><p>Fortalecimiento de las competencias comunicativas en lengua extranjera.</p></div>
-      <div class="card acc" style="--accent:var(--teal)"><span class="num">PRIORIDAD 3</span><h3>Ciencias naturales</h3><p>Consolidación de la explicación de fenómenos y el uso comprensivo del conocimiento científico.</p></div>
+      <div class="card acc" style="--accent:var(--red)"><div class="ico"><svg class="ic"><use href="#i-meta"/></svg></div><span class="num">PRIORIDAD 1</span><h3>Sociales y ciudadanas</h3><p>Comprensión de las dimensiones espaciales y temporales de eventos y problemáticas sociales; evaluación de usos de fuentes y argumentos.</p></div>
+      <div class="card acc" style="--accent:var(--gold-ink)"><div class="ico"><svg class="ic"><use href="#i-meta"/></svg></div><span class="num">PRIORIDAD 2</span><h3>Inglés</h3><p>Fortalecimiento de las competencias comunicativas en lengua extranjera.</p></div>
+      <div class="card acc" style="--accent:var(--teal)"><div class="ico"><svg class="ic"><use href="#i-meta"/></svg></div><span class="num">PRIORIDAD 3</span><h3>Ciencias naturales</h3><p>Consolidación de la explicación de fenómenos y el uso comprensivo del conocimiento científico.</p></div>
     </div>
     <div class="grid g2" style="gap:16px">
-      <div class="card tight" style="--accent:var(--navy)"><span class="num">LECTURA CRÍTICA</span><p>Se prioriza la <strong>reflexión y evaluación del contenido de los textos</strong>.</p></div>
-      <div class="card tight" style="--accent:var(--navy)"><span class="num">MATEMÁTICAS</span><p>Se prioriza la <strong>validación de procedimientos y estrategias</strong> para la solución de problemas.</p></div>
+      <div class="card tight" style="--accent:var(--navy)"><div class="ico"><svg class="ic"><use href="#i-libro"/></svg></div><span class="num">LECTURA CRÍTICA</span><p>Se prioriza la <strong>reflexión y evaluación del contenido de los textos</strong>.</p></div>
+      <div class="card tight" style="--accent:var(--navy)"><div class="ico"><svg class="ic"><use href="#i-grafica"/></svg></div><span class="num">MATEMÁTICAS</span><p>Se prioriza la <strong>validación de procedimientos y estrategias</strong> para la solución de problemas.</p></div>
     </div>
     <div class="card fill" style="--accent-soft:var(--navy-soft);margin-top:12px;padding:12px 20px">
       <p style="font-size:14.5px;color:var(--navy)">Estos resultados son analizados por el <strong>Consejo Académico y las comunidades de área</strong>, y constituyen insumo para el ajuste de los planes de área y de la P.E.P.A. institucional. <strong>Meta: avanzar hacia la categoría B.</strong></p>
@@ -1223,13 +1282,13 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
       <div class="tag">Área 2</div>
     </div>
     <div class="grid g3 grow" style="gap:14px;margin-bottom:12px">
-      <div class="card tight"><span class="num">ANÁLISIS DE RESULTADOS</span>
+      <div class="card tight"><div class="ico"><svg class="ic"><use href="#i-lupa"/></svg></div><span class="num">ANÁLISIS DE RESULTADOS</span>
         <ul class="bul sm compact" style="margin-top:8px">
           <li>Análisis del comportamiento histórico en pruebas externas</li>
           <li><strong>Priorización y semaforización de aprendizajes</strong> desde los planes de área y la planeación docente</li>
         </ul>
       </div>
-      <div class="card tight" style="--accent:var(--red)"><span class="num">PREPARACIÓN SABER 11</span>
+      <div class="card tight" style="--accent:var(--red)"><div class="ico"><svg class="ic"><use href="#i-evaluar"/></svg></div><span class="num">PREPARACIÓN SABER 11</span>
         <ul class="bul sm compact" style="margin-top:8px;--accent:var(--red)">
           <li>Preguntas tipo prueba en las actividades de aula de 10° y 11°</li>
           <li><strong>Simulacros de entrenamiento</strong></li>
@@ -1237,7 +1296,7 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
           <li>Extensión progresiva a los grados inferiores, articulada con la P.E.P.A.</li>
         </ul>
       </div>
-      <div class="card tight" style="--accent:var(--navy)"><span class="num">SEGUIMIENTO ACADÉMICO</span>
+      <div class="card tight" style="--accent:var(--navy)"><div class="ico"><svg class="ic"><use href="#i-calendario"/></svg></div><span class="num">SEGUIMIENTO ACADÉMICO</span>
         <ul class="bul sm compact" style="margin-top:8px;--accent:var(--navy)">
           <li>Reporte de desempeños por docentes y directores de grupo</li>
           <li><strong>Cortes preventivos</strong> en cada periodo para alertar tempranamente a las familias</li>
@@ -1247,9 +1306,9 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
       </div>
     </div>
     <div class="grid g3" style="gap:14px;margin-bottom:12px">
-      <div class="card tight" style="--accent:var(--green)"><span class="num">PLAN LECTOR</span><p>Estrategia transversal para el fortalecimiento de la comprensión lectora en todos los grados y áreas. <strong>Requiere ajustes</strong> para alcanzar plenamente sus objetivos.</p></div>
-      <div class="card tight" style="--accent:var(--green)"><span class="num">PROYECTOS PRODUCTIVOS</span><p>Aprendizaje aplicado que articula las diferentes áreas con la modalidad agropecuaria institucional.</p></div>
-      <div class="card tight" style="--accent:var(--green)"><span class="num">MONITORES ACADÉMICOS</span><p>Estudiantes destacados apoyan a sus compañeros con dificultades, con acompañamiento de los docentes.</p></div>
+      <div class="card tight" style="--accent:var(--green)"><div class="ico"><svg class="ic"><use href="#i-libro"/></svg></div><span class="num">PLAN LECTOR</span><p>Estrategia transversal para el fortalecimiento de la comprensión lectora en todos los grados y áreas. <strong>Requiere ajustes</strong> para alcanzar plenamente sus objetivos.</p></div>
+      <div class="card tight" style="--accent:var(--green)"><div class="ico"><svg class="ic"><use href="#i-planta"/></svg></div><span class="num">PROYECTOS PRODUCTIVOS</span><p>Aprendizaje aplicado que articula las diferentes áreas con la modalidad agropecuaria institucional.</p></div>
+      <div class="card tight" style="--accent:var(--green)"><div class="ico"><svg class="ic"><use href="#i-equipo"/></svg></div><span class="num">MONITORES ACADÉMICOS</span><p>Estudiantes destacados apoyan a sus compañeros con dificultades, con acompañamiento de los docentes.</p></div>
     </div>
     <div class="oport" style="padding:12px 20px">
       <div class="t" style="margin-bottom:6px">Oportunidades de mejora</div>
@@ -1320,7 +1379,7 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
       <div>
         <p class="lead" style="margin-bottom:16px">Las <strong>condiciones del suelo del corregimiento</strong> han generado daños estructurales en la sede de bachillerato, en espacios que requieren intervención para garantizar la seguridad de estudiantes, docentes y personal administrativo.</p>
         <div class="card tight" style="--accent:var(--red);margin-bottom:14px">
-          <span class="num">ESPACIOS AFECTADOS</span>
+          <div class="ico"><svg class="ic"><use href="#i-alerta"/></svg></div><span class="num">ESPACIOS AFECTADOS</span>
           <div class="chips" style="margin-top:10px">
             <span class="chip">Salón 3</span><span class="chip">Salón 4</span><span class="chip">Salón 16</span>
             <span class="chip">Salón 17</span><span class="chip">Laboratorio</span><span class="chip">Sala de profesores</span>
@@ -1334,7 +1393,7 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
       <div class="grid" style="gap:14px">
         <figure class="ph" style="height:214px"><img src="img/visita-de-infraestructura-educativa.jpg" alt="Visita técnica de infraestructura educativa"><figcaption>Visita técnica de infraestructura educativa a la institución</figcaption></figure>
         <div class="card tight" style="--accent:var(--navy)">
-          <span class="num">CONTINUIDAD DEL SERVICIO</span>
+          <div class="ico"><svg class="ic"><use href="#i-escuela"/></svg></div><span class="num">CONTINUIDAD DEL SERVICIO</span>
           <p style="font-size:14.5px">Atendiendo las recomendaciones de los padres de familia del Consejo Directivo, los estudiantes de la sede de bachillerato <strong>recibirán temporalmente el servicio en la sede principal</strong> durante la ejecución de las obras.</p>
         </div>
       </div>
@@ -1352,7 +1411,7 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
     </div>
     <div class="grid g2 grow" style="gap:16px;margin-bottom:16px">
       <div class="card acc" style="--accent:var(--gold-ink)">
-        <span class="num">CON RECURSOS PROPIOS · APROBADAS POR CONSEJO DIRECTIVO</span>
+        <div class="ico"><svg class="ic"><use href="#i-dinero"/></svg></div><span class="num">CON RECURSOS PROPIOS · APROBADAS POR CONSEJO DIRECTIVO</span>
         <h3>Adecuación de la sede de bachillerato</h3>
         <ul class="bul sm compact" style="margin-top:8px;--accent:var(--gold-ink)">
           <li>Demolición y reposición del cielo raso de la sala de profesores</li>
@@ -1362,7 +1421,7 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
         </ul>
       </div>
       <div class="card acc" style="--accent:var(--green)">
-        <span class="num">GESTIÓN ANTE LA ALCALDÍA DE PONEDERA · EN EJECUCIÓN</span>
+        <div class="ico"><svg class="ic"><use href="#i-obra"/></svg></div><span class="num">GESTIÓN ANTE LA ALCALDÍA DE PONEDERA · EN EJECUCIÓN</span>
         <h3>Intervención municipal en la institución</h3>
         <ul class="bul sm compact" style="margin-top:8px;--accent:var(--green)">
           <li><strong>Construcción de dos aulas</strong></li>
@@ -1395,7 +1454,7 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
       <div class="tag">1 de enero – 30 de junio de 2026</div>
     </div>
     <div class="grid g-4-8 align-start" style="margin-bottom:16px">
-      <div class="stat hero" style="min-height:150px">
+      <div class="stat hero" style="min-height:150px"><div class="wm"><svg class="ic"><use href="#i-dinero"/></svg></div>
         <div class="lab">Total general de ingresos del periodo</div>
         <div class="val" style="font-size:33px">$197.695.444</div>
         <div class="note">Enero 1 – junio 30 de 2026 · NIT 802.002.264-6</div>
@@ -1414,7 +1473,7 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
     </div>
     <div class="grid g-7-5 grow" style="gap:16px">
       <div class="card tight">
-        <span class="num">ORIGEN DE LOS RECURSOS</span>
+        <div class="ico"><svg class="ic"><use href="#i-archivo"/></svg></div><span class="num">ORIGEN DE LOS RECURSOS</span>
         <p style="font-size:14.5px">Reconocimiento de los recursos de <strong>gratuidad educativa girados por la Nación</strong> para el funcionamiento del Fondo de Servicios Educativos durante la vigencia 2026 (documento 0000000005 del 31 de marzo de 2026, Banco Agrario Maestra). Constituye <strong>prácticamente la totalidad de los ingresos</strong> del periodo; los rendimientos financieros son marginales en comparación.</p>
       </div>
       <div class="card fill" style="--accent-soft:var(--navy-soft)">
@@ -1436,21 +1495,21 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
     <div class="grid g-7-5 align-start">
       <div class="card">
         <h3>Rendimientos de los recursos de gratuidad, mes a mes</h3>
-        <div class="chart" data-chart="col" data-cfg='{"w":600,"h":198,"ml":62,"max":372000,"ticks":[0,100000,200000,300000],"labels":["Ene","Feb","Mar","Abr","May","Jun"],"series":[{"v":[6729,6080,16235,327565,278348,298652],"c":"#2a78d6","lab":["6.729","6.080","16.235","327.565","278.348","298.652"]}]}'></div>
+        <div class="chart" data-chart="col" data-cfg='{"w":600,"h":170,"ml":62,"max":372000,"ticks":[0,100000,200000,300000],"labels":["Ene","Feb","Mar","Abr","May","Jun"],"series":[{"v":[6729,6080,16235,327565,278348,298652],"c":"#2a78d6","lab":["6.729","6.080","16.235","327.565","278.348","298.652"]}]}'></div>
         <p class="cap">Rubro 1.2.05.02.01 · cuenta contable 11100601. Subtotal del semestre: <strong>$933.609</strong>. El salto a partir de abril corresponde al giro de los recursos de gratuidad de la vigencia. Los rendimientos de recursos propios (rubro 1.2.05.02.02) sumaron $927 en el mismo periodo.</p>
       </div>
-      <div class="grid" style="gap:11px;align-content:start">
+      <div class="grid" style="gap:9px;align-content:start">
         <div class="card tight" style="--accent:var(--green)">
-          <span class="num">ESTADO DEL PROCESO</span>
+          <div class="ico"><svg class="ic"><use href="#i-check"/></svg></div><span class="num">ESTADO DEL PROCESO</span>
           <h3 style="color:#12633C">Informes al día</h3>
-          <p style="font-size:14px">Los informes financieros se elaboran <strong>trimestralmente</strong> por el contador de la institución —contratado con recursos de gratuidad— y se presentan ante los entes competentes, incluido el <strong>informe anual del FSE</strong> ante la Secretaría de Educación del Atlántico.</p>
+          <p style="font-size:12.8px">Los informes financieros se elaboran <strong>trimestralmente</strong> por el contador de la institución —contratado con recursos de gratuidad— y se presentan ante los entes competentes, incluido el <strong>informe anual del FSE</strong> ante la Secretaría de Educación del Atlántico.</p>
         </div>
         <div class="card tight" style="--accent:var(--navy)">
-          <span class="num">EJECUCIÓN Y CONTRATACIÓN</span>
-          <p style="font-size:14px">La ejecución se proyecta a través del <strong>plan anual de adquisiciones y de compras</strong>, orientada a las necesidades priorizadas —como las obras de adecuación de la sede de bachillerato—. La contratación sigue los lineamientos legales y el reglamento de contratación del FSE, y se reporta en las plataformas oficiales.</p>
+          <div class="ico"><svg class="ic"><use href="#i-carpeta"/></svg></div><span class="num">EJECUCIÓN Y CONTRATACIÓN</span>
+          <p style="font-size:12.8px">La ejecución se proyecta a través del <strong>plan anual de adquisiciones y de compras</strong>, orientada a las necesidades priorizadas —como las obras de adecuación de la sede de bachillerato—. La contratación sigue los lineamientos legales y el reglamento de contratación del FSE, y se reporta en las plataformas oficiales.</p>
         </div>
         <div class="card fill" style="--accent-soft:var(--gold-soft);padding:11px 18px">
-          <p style="font-size:14px;color:#5C4A10">Los <strong>soportes reposan en la institución</strong> a disposición de los órganos de control y de la comunidad educativa.</p>
+          <p style="font-size:12.8px;color:#5C4A10">Los <strong>soportes reposan en la institución</strong> a disposición de los órganos de control y de la comunidad educativa.</p>
         </div>
       </div>
     </div>
@@ -1467,7 +1526,7 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
     </div>
     <div class="grid g2" style="gap:18px;margin-bottom:16px">
       <div class="card acc" style="--accent:var(--navy)">
-        <span class="num">RECURSOS PARA EL APRENDIZAJE</span>
+        <div class="ico"><svg class="ic"><use href="#i-libro"/></svg></div><span class="num">RECURSOS PARA EL APRENDIZAJE</span>
         <p style="margin-bottom:10px">La institución administra los recursos didácticos, tecnológicos y físicos necesarios para las actividades académicas y administrativas:</p>
         <div class="chips">
           <span class="chip">Equipos de cómputo</span><span class="chip">Material didáctico</span><span class="chip">Textos</span>
@@ -1476,7 +1535,7 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
         <p style="font-size:14px;margin-top:12px">El mantenimiento se realiza según las necesidades identificadas para el normal desarrollo de las actividades escolares.</p>
       </div>
       <div class="card acc" style="--accent:var(--teal)">
-        <span class="num">ARCHIVO ACADÉMICO E INFORMES</span>
+        <div class="ico"><svg class="ic"><use href="#i-archivo"/></svg></div><span class="num">ARCHIVO ACADÉMICO E INFORMES</span>
         <p style="margin-bottom:10px">Los archivos se llevan en forma <strong>física y digital</strong>, garantizando la custodia y disponibilidad de la información de los estudiantes:</p>
         <ul class="bul sm compact" style="--accent:var(--teal)">
           <li>Planillas de seguimiento académico y de asistencia</li>
@@ -1508,14 +1567,14 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
     </div>
     <p class="lead">Acciones orientadas a garantizar <strong>entornos escolares seguros y protectores</strong> para los estudiantes en todas las sedes.</p>
     <div class="grid g4 grow" style="gap:16px;margin-bottom:16px">
-      <div class="card tight"><span class="num">01</span><h3>Servicio de vigilancia</h3><p>Suministrado por la Secretaría de Educación del Atlántico en las cuatro sedes.</p></div>
-      <div class="card tight" style="--accent:var(--green)"><span class="num">02</span><h3>Proyecto de Gestión del Riesgo Escolar</h3><p>Descrito en la gestión comunitaria, en el marco de la Ley 1523 de 2012.</p></div>
-      <div class="card tight" style="--accent:var(--red)"><span class="num">03</span><h3>Seguimiento a la planta física</h3><p>Con las intervenciones priorizadas en la sede de bachillerato.</p></div>
-      <div class="card tight" style="--accent:var(--navy)"><span class="num">04</span><h3>Articulación con autoridades</h3><p>Del corregimiento y del municipio, para la protección integral de niños, niñas y adolescentes.</p></div>
+      <div class="card tight"><div class="ico"><svg class="ic"><use href="#i-reloj"/></svg></div><span class="num">01</span><h3>Servicio de vigilancia</h3><p>Suministrado por la Secretaría de Educación del Atlántico en las cuatro sedes.</p></div>
+      <div class="card tight" style="--accent:var(--green)"><div class="ico"><svg class="ic"><use href="#i-alerta"/></svg></div><span class="num">02</span><h3>Proyecto de Gestión del Riesgo Escolar</h3><p>Descrito en la gestión comunitaria, en el marco de la Ley 1523 de 2012.</p></div>
+      <div class="card tight" style="--accent:var(--red)"><div class="ico"><svg class="ic"><use href="#i-obra"/></svg></div><span class="num">03</span><h3>Seguimiento a la planta física</h3><p>Con las intervenciones priorizadas en la sede de bachillerato.</p></div>
+      <div class="card tight" style="--accent:var(--navy)"><div class="ico"><svg class="ic"><use href="#i-escudo"/></svg></div><span class="num">04</span><h3>Articulación con autoridades</h3><p>Del corregimiento y del municipio, para la protección integral de niños, niñas y adolescentes.</p></div>
     </div>
     <div class="grid g2 grow" style="gap:16px">
       <div class="card tight">
-        <span class="num">HORARIOS DE VIGILANCIA</span>
+        <div class="ico"><svg class="ic"><use href="#i-reloj"/></svg></div><span class="num">HORARIOS DE VIGILANCIA</span>
         <table class="tbl sm" style="margin-top:8px">
           <tbody>
             <tr><td>Lunes a viernes</td><td>6:00 p. m. – 6:00 a. m.</td></tr>
@@ -1525,7 +1584,7 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
         </table>
       </div>
       <div class="oport">
-        <div class="t">Necesidad identificada</div>
+        <div class="t"><svg class="ic"><use href="#i-alerta"/></svg>Necesidad identificada</div>
         <ul>
           <li>El personal <strong>resulta insuficiente</strong> dada el área de las sedes, especialmente la principal.</li>
           <li>Gestionar ante la Secretaría de Educación del Atlántico <strong>personal adicional de vigilancia</strong>, para proteger la infraestructura, la dotación y los espacios de la modalidad agropecuaria.</li>
@@ -1565,15 +1624,15 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
         <p class="cap" style="padding-bottom:8px">Sedes de primaria: María Inmaculada, Las Flores y Rafael Núñez.</p>
       </div>
       <div class="grid" style="gap:14px;align-content:start">
-        <div class="stat hero" style="min-height:104px"><div class="lab">Docentes en las cuatro sedes</div><div class="val">66</div><div class="note">31 en bachillerato · 35 en primaria</div></div>
+        <div class="stat hero" style="min-height:88px"><div class="wm"><svg class="ic"><use href="#i-equipo"/></svg></div><div class="lab">Docentes en las cuatro sedes</div><div class="val">66</div><div class="note">31 en bachillerato · 35 en primaria</div></div>
         <div class="card tight" style="--accent:var(--navy)">
-          <span class="num">EVALUACIÓN DE DESEMPEÑO 2026</span>
+          <div class="ico"><svg class="ic"><use href="#i-evaluar"/></svg></div><span class="num">EVALUACIÓN DE DESEMPEÑO 2026</span>
           <ul class="bul sm compact" style="margin-top:8px;--accent:var(--navy)">
             <li>Apertura del proceso para docentes y directivos del <strong>Decreto 1278 de 2002</strong> (Acta 001 de 2026), con socialización del proceso y concertación de contribuciones, criterios y evidencias.</li>
             <li><strong>Diálogos de desempeño</strong> con los docentes del Decreto 2277 de 1979, orientados al mejoramiento de las prácticas pedagógicas.</li>
           </ul>
         </div>
-        <div class="oport" style="padding:12px 18px">
+        <div class="oport" style="padding:9px 16px">
           <div class="t" style="margin-bottom:5px">Oportunidad de mejora</div>
           <ul><li>Consolidar el cronograma del proceso de evaluación de desempeño y continuar gestionando la cualificación del talento humano.</li></ul>
         </div>
@@ -1594,10 +1653,10 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
       <div>
         <p class="lead" style="margin-bottom:16px">El mantenimiento se programa anualmente según las necesidades y características de cada sede, la periodicidad requerida por los espacios y recursos, y la <strong>atención de urgencias no programadas</strong>.</p>
         <div class="grid g2" style="gap:12px">
-          <div class="card tight"><span class="num">INICIO DEL AÑO ESCOLAR</span><p>Limpieza general de las sedes: malezas, techos y canales. Poda de jardines y árboles.</p></div>
-          <div class="card tight" style="--accent:var(--navy)"><span class="num">REDES Y SANEAMIENTO</span><p>Mantenimiento del sistema eléctrico y las luminarias; adecuación de baterías sanitarias y vaciado de pozas sépticas.</p></div>
-          <div class="card tight" style="--accent:var(--green)"><span class="num">SALUD AMBIENTAL</span><p>Fumigación contra el dengue en articulación con las autoridades de salud del municipio.</p></div>
-          <div class="card tight" style="--accent:var(--red)"><span class="num">OBRA MENOR Y EQUIPOS</span><p>Mantenimiento de paredes, puertas y ventanales, y de los equipos de uso académico y administrativo.</p></div>
+          <div class="card tight"><div class="ico"><svg class="ic"><use href="#i-calendario"/></svg></div><span class="num">INICIO DEL AÑO ESCOLAR</span><p>Limpieza general de las sedes: malezas, techos y canales. Poda de jardines y árboles.</p></div>
+          <div class="card tight" style="--accent:var(--navy)"><div class="ico"><svg class="ic"><use href="#i-llave"/></svg></div><span class="num">REDES Y SANEAMIENTO</span><p>Mantenimiento del sistema eléctrico y las luminarias; adecuación de baterías sanitarias y vaciado de pozas sépticas.</p></div>
+          <div class="card tight" style="--accent:var(--green)"><div class="ico"><svg class="ic"><use href="#i-hoja"/></svg></div><span class="num">SALUD AMBIENTAL</span><p>Fumigación contra el dengue en articulación con las autoridades de salud del municipio.</p></div>
+          <div class="card tight" style="--accent:var(--red)"><div class="ico"><svg class="ic"><use href="#i-obra"/></svg></div><span class="num">OBRA MENOR Y EQUIPOS</span><p>Mantenimiento de paredes, puertas y ventanales, y de los equipos de uso académico y administrativo.</p></div>
         </div>
       </div>
       <div class="grid" style="gap:12px;grid-template-rows:minmax(0,1fr) minmax(0,1fr)">
@@ -1641,22 +1700,22 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
     <p class="lead" style="margin-bottom:16px">La institución promueve la <strong>vinculación activa de las familias y de la comunidad</strong> de Puerto Giraldo a los procesos educativos, y garantiza el acceso al servicio en sus cuatro sedes a las familias del corregimiento y de las zonas aledañas.</p>
     <div class="grid g4 grow" style="gap:14px;margin-bottom:14px">
       <div class="card acc" style="--accent:var(--navy)">
-        <span class="num">RESOLUCIÓN 4210 DE 1996</span>
+        <div class="ico"><svg class="ic"><use href="#i-equipo"/></svg></div><span class="num">RESOLUCIÓN 4210 DE 1996</span>
         <h3>Servicio social estudiantil obligatorio</h3>
         <p>Inicia en grado décimo y culmina en undécimo. Los jóvenes apoyan actividades institucionales y comunitarias que fortalecen su <strong>formación ciudadana y su sentido de pertenencia</strong>.</p>
       </div>
       <div class="card acc" style="--accent:var(--green)">
-        <span class="num">PRAE</span>
+        <div class="ico"><svg class="ic"><use href="#i-hoja"/></svg></div><span class="num">PRAE</span>
         <h3>Proyecto Ambiental Escolar y grupo ecológico</h3>
         <p>Activo y en desarrollo: actualmente se adelanta la <strong>recuperación de espacios y la ambientación institucional</strong>, con campañas de sensibilización sobre el cuidado del medio ambiente.</p>
       </div>
       <div class="card acc" style="--accent:var(--red)">
-        <span class="num">LEY 1523 DE 2012</span>
+        <div class="ico"><svg class="ic"><use href="#i-alerta"/></svg></div><span class="num">LEY 1523 DE 2012</span>
         <h3>Proyecto de Gestión del Riesgo Escolar</h3>
         <p>Identificación de amenazas y vulnerabilidades, prevención de riesgos físicos y psicosociales y <strong>preparación de la comunidad educativa para la respuesta ante emergencias</strong>, en articulación con las autoridades locales.</p>
       </div>
       <div class="card acc" style="--accent:var(--teal)">
-        <span class="num">VIDA INSTITUCIONAL</span>
+        <div class="ico"><svg class="ic"><use href="#i-trofeo"/></svg></div><span class="num">VIDA INSTITUCIONAL</span>
         <h3>Actos culturales, cívicos y deportivos</h3>
         <p>Con proyección a la comunidad y participación activa de los padres de familia, además de los <strong>programas de prevención y promoción</strong> desde la orientación escolar.</p>
       </div>
@@ -1722,7 +1781,7 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
       <div>
         <p class="lead" style="margin-bottom:16px">Orientadas por el servicio de orientación escolar, las escuelas de familia <strong>fortalecen el vínculo familia–escuela</strong> y contribuyen a la permanencia y al bienestar de los estudiantes.</p>
         <div class="card tight" style="--accent:var(--green);margin-bottom:14px">
-          <span class="num">TEMÁTICAS ABORDADAS</span>
+          <div class="ico"><svg class="ic"><use href="#i-dialogar"/></svg></div><span class="num">TEMÁTICAS ABORDADAS</span>
           <div class="chips" style="margin-top:10px">
             <span class="chip">Corresponsabilidad de las familias</span><span class="chip">Educación inclusiva</span>
             <span class="chip">Convivencia</span><span class="chip">Acompañamiento desde el hogar</span>
@@ -1730,7 +1789,7 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
           </div>
         </div>
         <div class="card acc" style="--accent:var(--navy)">
-          <span class="num">ALIANZA CON LA GOBERNACIÓN DEL ATLÁNTICO</span>
+          <div class="ico"><svg class="ic"><use href="#i-familia"/></svg></div><span class="num">ALIANZA CON LA GOBERNACIÓN DEL ATLÁNTICO</span>
           <h3>Programa Buena Vibra</h3>
           <p>A través de la <strong>Secretaría del Interior</strong> se desarrolló una escuela de familia sobre <strong>pautas de crianza y manejo de las emociones en la familia</strong>.</p>
         </div>
@@ -1782,7 +1841,7 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
       <div class="grid" style="gap:14px">
         <figure class="ph" style="height:214px"><img src="img/escuela-de-padres3.jpg" alt="Reunión con padres de familia"><figcaption>Espacios de participación de los padres de familia</figcaption></figure>
         <div class="oport">
-          <div class="t">Oportunidad de mejora</div>
+          <div class="t"><svg class="ic"><use href="#i-alerta"/></svg>Oportunidad de mejora</div>
           <ul><li>Al igual que en los demás espacios de participación, la institución trabaja en estrategias para <strong>incrementar la asistencia de los padres</strong> a las sesiones programadas durante el año escolar.</li></ul>
         </div>
       </div>
@@ -1801,7 +1860,7 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
     <p class="lead" style="margin-bottom:16px">Por su carácter técnico agropecuario, la institución mantiene una <strong>relación estrecha con el contexto productivo</strong> del corregimiento de Puerto Giraldo y del municipio de Ponedera, y se constituye en un <strong>eje de la vida comunitaria</strong>, poniendo sus espacios al servicio de actividades educativas, culturales y comunitarias.</p>
     <div class="grid g2 grow" style="gap:16px;margin-bottom:14px">
       <div class="card acc" style="--accent:var(--green)">
-        <span class="num">PROYECTOS PRODUCTIVOS DE GRADO ONCE</span>
+        <div class="ico"><svg class="ic"><use href="#i-planta"/></svg></div><span class="num">PROYECTOS PRODUCTIVOS DE GRADO ONCE</span>
         <h3>Aplicación práctica de la modalidad</h3>
         <p style="margin-bottom:10px">Los estudiantes de undécimo desarrollan proyectos de producción animal y cultivos que constituyen su proyecto productivo de grado:</p>
         <div class="chips">
@@ -1810,7 +1869,7 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
         </div>
       </div>
       <div class="card acc" style="--accent:var(--navy)">
-        <span class="num">ARTICULACIÓN CON EL TERRITORIO</span>
+        <div class="ico"><svg class="ic"><use href="#i-red"/></svg></div><span class="num">ARTICULACIÓN CON EL TERRITORIO</span>
         <h3>Aporte al desarrollo local</h3>
         <p>Los proyectos pedagógicos productivos y la articulación con el SENA <strong>vinculan la formación de los estudiantes con las actividades agropecuarias propias de la región</strong>. La institución se articula además con las autoridades locales, como la Inspección de Convivencia y Paz del corregimiento, para la atención integral de los niños, niñas y jóvenes.</p>
       </div>
@@ -1870,14 +1929,14 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
       <div class="tag">Prioridad institucional</div>
     </div>
     <div class="card acc" style="--accent:var(--red);margin-bottom:18px">
-      <span class="num">PROYECTO PRIORITARIO</span>
+      <div class="ico"><svg class="ic"><use href="#i-obra"/></svg></div><span class="num">PROYECTO PRIORITARIO</span>
       <h3 style="font-size:20px">Mejoramiento de la infraestructura de la sede de bachillerato</h3>
       <p style="margin-top:8px">Problemática socializada y estudiada por el Consejo Directivo mediante el <strong>Acta N.º 0012 del 2 de junio de 2026</strong>. El proyecto contempla la ejecución de obras prioritarias de adecuación con recursos propios, la realización de los <strong>estudios técnicos requeridos</strong> y la gestión ante la Secretaría de Educación, la Gobernación del Atlántico y demás entidades competentes para obtener recursos de apoyo, <strong>garantizando la continuidad de la prestación del servicio educativo</strong> durante la ejecución de las obras.</p>
     </div>
     <div class="grid g3 grow" style="gap:16px">
-      <div class="card tight" style="--accent:var(--green)"><span class="num">MODALIDAD AGROPECUARIA</span><h3>Mejoramiento de las zonas de la modalidad</h3><p>Galpones, estanques y áreas de cultivo, espacios fundamentales para las prácticas de los estudiantes.</p></div>
-      <div class="card tight" style="--accent:var(--navy)"><span class="num">MEDIA TÉCNICA</span><h3>Fortalecimiento de la articulación con el SENA</h3><p>Ampliar y consolidar la formación técnica de los estudiantes de la media.</p></div>
-      <div class="card tight" style="--accent:var(--gold-ink)"><span class="num">PROYECCIÓN A LA COMUNIDAD</span><h3>Muestra y comercialización de productos</h3><p>Promover espacios donde los estudiantes muestren y comercialicen los productos de sus proyectos productivos.</p></div>
+      <div class="card tight" style="--accent:var(--green)"><div class="ico"><svg class="ic"><use href="#i-planta"/></svg></div><span class="num">MODALIDAD AGROPECUARIA</span><h3>Mejoramiento de las zonas de la modalidad</h3><p>Galpones, estanques y áreas de cultivo, espacios fundamentales para las prácticas de los estudiantes.</p></div>
+      <div class="card tight" style="--accent:var(--navy)"><div class="ico"><svg class="ic"><use href="#i-certificado"/></svg></div><span class="num">MEDIA TÉCNICA</span><h3>Fortalecimiento de la articulación con el SENA</h3><p>Ampliar y consolidar la formación técnica de los estudiantes de la media.</p></div>
+      <div class="card tight" style="--accent:var(--gold-ink)"><div class="ico"><svg class="ic"><use href="#i-trofeo"/></svg></div><span class="num">PROYECCIÓN A LA COMUNIDAD</span><h3>Muestra y comercialización de productos</h3><p>Promover espacios donde los estudiantes muestren y comercialicen los productos de sus proyectos productivos.</p></div>
     </div>
   </div>
   <div class="foot"><div class="l"><i class="mark"></i>Rendición de cuentas · Primer semestre 2026</div><div class="r"></div></div>
@@ -1892,7 +1951,7 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
     </div>
     <div class="grid g2 grow" style="gap:18px">
       <div class="card acc" style="--accent:var(--red)">
-        <span class="num">ÁMBITO PEDAGÓGICO Y CURRICULAR</span>
+        <div class="ico"><svg class="ic"><use href="#i-libro"/></svg></div><span class="num">ÁMBITO PEDAGÓGICO Y CURRICULAR</span>
         <ul class="bul sm" style="margin-top:10px;--accent:var(--red)">
           <li>Culminar la <strong>resignificación del PEI</strong> con la participación de la comunidad educativa</li>
           <li>Finalizar la <strong>unificación de los planes de área</strong> y la actualización de las mallas curriculares</li>
@@ -1901,7 +1960,7 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
         </ul>
       </div>
       <div class="card acc" style="--accent:var(--navy)">
-        <span class="num">ÁMBITO INSTITUCIONAL Y COMUNITARIO</span>
+        <div class="ico"><svg class="ic"><use href="#i-escuela"/></svg></div><span class="num">ÁMBITO INSTITUCIONAL Y COMUNITARIO</span>
         <ul class="bul sm" style="margin-top:10px;--accent:var(--navy)">
           <li>Fortalecer la <strong>educación inclusiva</strong>: metas en el PMI y cualificación docente en DUA</li>
           <li>Continuar la <strong>actualización del Manual de Convivencia</strong> conforme a la Ley 1620 de 2013</li>
@@ -1922,10 +1981,10 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
       <div class="tag">Compromisos verificables</div>
     </div>
     <div class="grid g4 grow" style="gap:16px;margin-bottom:16px">
-      <div class="card acc" style="--accent:var(--red)"><span class="num">META 1</span><h3>De categoría C hacia categoría B</h3><p>Mantener la tendencia de mejoramiento en los resultados del examen Saber 11 y avanzar en la clasificación de planteles del ICFES.</p></div>
-      <div class="card acc" style="--accent:var(--navy)"><span class="num">META 2</span><h3>Fortalecer la permanencia escolar</h3><p>Reducir la deserción mediante el seguimiento y las estrategias de bienestar, con foco en la básica secundaria.</p></div>
-      <div class="card acc" style="--accent:var(--green)"><span class="num">META 3</span><h3>Sostenibilidad de los proyectos productivos</h3><p>Garantizarla durante todo su tiempo de desarrollo y ejecución.</p></div>
-      <div class="card acc" style="--accent:var(--gold-ink)"><span class="num">META 4</span><h3>Consolidar las alianzas</h3><p>Con el sector productivo agropecuario, las entidades territoriales y las instituciones aliadas, para ampliar las oportunidades de formación.</p></div>
+      <div class="card acc" style="--accent:var(--red)"><div class="ico"><svg class="ic"><use href="#i-subir"/></svg></div><span class="num">META 1</span><h3>De categoría C hacia categoría B</h3><p>Mantener la tendencia de mejoramiento en los resultados del examen Saber 11 y avanzar en la clasificación de planteles del ICFES.</p></div>
+      <div class="card acc" style="--accent:var(--navy)"><div class="ico"><svg class="ic"><use href="#i-estudiantes"/></svg></div><span class="num">META 2</span><h3>Fortalecer la permanencia escolar</h3><p>Reducir la deserción mediante el seguimiento y las estrategias de bienestar, con foco en la básica secundaria.</p></div>
+      <div class="card acc" style="--accent:var(--green)"><div class="ico"><svg class="ic"><use href="#i-planta"/></svg></div><span class="num">META 3</span><h3>Sostenibilidad de los proyectos productivos</h3><p>Garantizarla durante todo su tiempo de desarrollo y ejecución.</p></div>
+      <div class="card acc" style="--accent:var(--gold-ink)"><div class="ico"><svg class="ic"><use href="#i-red"/></svg></div><span class="num">META 4</span><h3>Consolidar las alianzas</h3><p>Con el sector productivo agropecuario, las entidades territoriales y las instituciones aliadas, para ampliar las oportunidades de formación.</p></div>
     </div>
     <div class="card fill" style="--accent-soft:var(--navy-soft);padding:16px 22px">
       <h3>En este mismo horizonte, la institución proyecta</h3>
@@ -1949,13 +2008,13 @@ figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px
     </div>
     <p class="lead" style="margin-bottom:16px">Todo lo presentado en esta audiencia cuenta con soportes que <strong>reposan en la institución</strong> y quedan a disposición de la comunidad educativa y de los órganos de control.</p>
     <div class="grid g4 grow" style="gap:16px;margin-bottom:14px">
-      <div class="card tight"><span class="num">ANEXO 1</span><h3>Listados de asistencia</h3><p>De los participantes en la audiencia pública, digitalizados en PDF.</p></div>
-      <div class="card tight" style="--accent:var(--navy)"><span class="num">ANEXO 2</span><h3>Publicación de la convocatoria</h3><p>Circular de invitación, página de Facebook institucional y grupos de WhatsApp de docentes y de padres por cursos.</p></div>
-      <div class="card tight" style="--accent:var(--green)"><span class="num">ANEXO 3</span><h3>Registro fotográfico</h3><p>Fotografías de la audiencia con los participantes, el expositor y el desarrollo de la actividad.</p></div>
-      <div class="card tight" style="--accent:var(--gold-ink)"><span class="num">ANEXO 4</span><h3>Diapositivas presentadas</h3><p>La presente presentación, anexa al informe de rendición de cuentas.</p></div>
+      <div class="card tight"><div class="ico"><svg class="ic"><use href="#i-archivo"/></svg></div><span class="num">ANEXO 1</span><h3>Listados de asistencia</h3><p>De los participantes en la audiencia pública, digitalizados en PDF.</p></div>
+      <div class="card tight" style="--accent:var(--navy)"><div class="ico"><svg class="ic"><use href="#i-informar"/></svg></div><span class="num">ANEXO 2</span><h3>Publicación de la convocatoria</h3><p>Circular de invitación, página de Facebook institucional y grupos de WhatsApp de docentes y de padres por cursos.</p></div>
+      <div class="card tight" style="--accent:var(--green)"><div class="ico"><svg class="ic"><use href="#i-lupa"/></svg></div><span class="num">ANEXO 3</span><h3>Registro fotográfico</h3><p>Fotografías de la audiencia con los participantes, el expositor y el desarrollo de la actividad.</p></div>
+      <div class="card tight" style="--accent:var(--gold-ink)"><div class="ico"><svg class="ic"><use href="#i-grafica"/></svg></div><span class="num">ANEXO 4</span><h3>Diapositivas presentadas</h3><p>La presente presentación, anexa al informe de rendición de cuentas.</p></div>
     </div>
     <div class="card acc" style="--accent:var(--teal)">
-      <span class="num">DOCUMENTOS INSTITUCIONALES DISPONIBLES</span>
+      <div class="ico"><svg class="ic"><use href="#i-carpeta"/></svg></div><span class="num">DOCUMENTOS INSTITUCIONALES DISPONIBLES</span>
       <div class="chips" style="margin-top:10px">
         <span class="chip">Informe de rendición de cuentas 2026-I</span><span class="chip">PEI</span><span class="chip">Manual de Convivencia</span>
         <span class="chip">SIEE</span><span class="chip">Actas del Consejo Directivo</span><span class="chip">Libros de actas del gobierno escolar</span>
